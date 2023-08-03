@@ -1,24 +1,74 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Layout from "./Pages/Common/Layout"
+
+const Dashboard = React.lazy(()=>import("./Pages/Dashboard"));
+const Cart = React.lazy(()=>import("./Pages/Cart/Cart"));
+const Checkout = React.lazy(()=>import("./Pages/Checkout/Checkout"));
+const Login = React.lazy(()=>import("./Pages/Auth/Login"));
+const Contact = React.lazy(()=>import("./Pages/Contact"))
+const List = React.lazy(()=>import("./Pages/List"))
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+              <Route
+                index
+                element = {
+                  <React.Suspense>
+                    <Dashboard />
+                  </React.Suspense>
+                }
+              />
+
+              <Route
+                path="cart"
+                element = {
+                  <React.Suspense>
+                    <Cart />
+                  </React.Suspense>
+                }
+              />  
+
+              <Route
+                path="checkout"
+                element = {
+                  <React.Suspense>
+                    <Checkout />
+                  </React.Suspense>
+                }
+              />  
+              <Route
+                path="login"
+                element = {
+                  <React.Suspense>
+                    <Login />
+                  </React.Suspense>
+                }
+              /> 
+              <Route
+              path = "contact"
+              element = {
+                <React.Suspense>
+                  <Contact />
+                </React.Suspense>
+              }
+              />
+              <Route
+              path = "list"
+              element = {
+                <React.Suspense>
+                  <List />
+                </React.Suspense>
+              }
+              />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
