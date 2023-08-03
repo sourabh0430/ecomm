@@ -2,8 +2,6 @@ import {useState} from "react";
 
 const Contact = () => {
 
-        
-
      const [listData, setListData] = useState([]);
      const [searchKey, setSearchKey] = useState();
     const [formData, setFormData] = useState({});
