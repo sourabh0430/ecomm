@@ -7,9 +7,13 @@ const Contact = () => {
     // added line by jayant line 7    
 
     // added line by sourabh line 9
+<<<<<<< Updated upstream
     // added line by amit
     // added line by jayant line 8
 
+=======
+    // added line by sourabh line 10
+>>>>>>> Stashed changes
      const [listData, setListData] = useState([]);
      const [searchKey, setSearchKey] = useState();
     const [formData, setFormData] = useState({});
